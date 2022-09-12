@@ -1,8 +1,10 @@
 import Header from "./Header";
-
+import { useNavigate } from "react-router-dom";
 
 
 const Login = (props) => {
+  // console.log("login user: ",props.email)
+  const navigate = useNavigate()
   return (
     <div className="">
       <div className="flex flex-col w-[100vw] h-[100vh]">
@@ -20,7 +22,11 @@ const Login = (props) => {
             className="py-5"
             src="https://firebasestorage.googleapis.com/v0/b/disney-clone-1-16344.appspot.com/o/images%2Fcta-logo-one.svg?alt=media&token=7bd26c5e-63d1-4662-a7f9-18a58c561877"
           />
-          <button className="bg-blue-600 h-[3em] text-slate-50 font-semibold rounded-md text-lg py-5 items-center flex justify-center">GET ALL THERE</button>
+          
+          <button
+          onClick={()=>{navigate("/welcome")}}
+          className="bg-blue-600 h-[3em] text-slate-50 font-semibold rounded-md text-lg py-5 items-center flex justify-center">GET ALL THERE</button>
+          
           <div className="text-slate-50 p-5">
             Get Premier Access to Raya and the Last Dragon for an additional fee with a disney+ subscription. As of 03/26/21, the price of Disney+ and The Disney Bundle will increase by $1.
           </div>

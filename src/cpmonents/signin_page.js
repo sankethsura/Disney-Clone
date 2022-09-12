@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "./firebase"; 
-import {createUserWithEmailAndPassword,
-        signInWithEmailAndPassword,
-        signOut,
+import {createUserWithEmailAndPassword
         } from "firebase/auth"
 
 export default function Signin_page(props) {

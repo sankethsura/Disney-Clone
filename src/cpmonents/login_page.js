@@ -1,11 +1,7 @@
-import { useRef,  useState } from "react";
+import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "./firebase";
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signOut,
-} from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 const Login_page = (props) => {
   const emailRef = useRef();
@@ -15,6 +11,7 @@ const Login_page = (props) => {
   let navForgot = useNavigate();
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  let navHome = useNavigate();
 
   const handleLogIn = async (e) => {
     e.preventDefault();
@@ -29,13 +26,13 @@ const Login_page = (props) => {
       setError(err.message);
     }
   };
-  
+
   return (
-    <div>
-      <div>
+    <div className="">
+      <div className="">
         <img
           className="absolute w-[100vw] object-cover h-[100vh] opacity-80 top-0 -z-10"
-          src="https://firebasestorage.googleapis.com/v0/b/disney-clone-1-16344.appspot.com/o/images%2Fhome-background.png?alt=media&token=7dd411c3-6d99-4b84-9c1a-2da33ef9e4b6"
+          src="https://images.unsplash.com/photo-1660813333650-213cb5d4ad8c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=729&q=80"
         />
       </div>
       <div className="bg-slate-50 w-[50vw] min-w-[350px] mx-auto max-w-[800px] rounded-md p-6 my-[20vh]">
@@ -86,6 +83,9 @@ const Login_page = (props) => {
         >
           <button>Forgot Password?</button>
         </div>
+        <button className="text-xs mt-2  border-slate-500 rounded-md px-5 py-1 bg-yellow-200">
+          Back to HOME!!!
+        </button>
       </div>
     </div>
   );

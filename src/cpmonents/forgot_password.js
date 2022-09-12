@@ -4,10 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { auth } from "./firebase";
 import {
-  createUserWithEmailAndPassword,
-  sendPasswordResetEmail,
-  signInWithEmailAndPassword,
-  signOut,
+  
+  sendPasswordResetEmail
 } from "firebase/auth";
 
 export default function Forgot(props) {

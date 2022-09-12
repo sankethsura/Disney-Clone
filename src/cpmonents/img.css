@@ -1,0 +1,17 @@
+
+
+
+.slick-dots li.slick-active button:before {
+    color:white
+}
+.slick-dots li button:before {
+    color: gray;
+  }
+
+/* .slick-list{
+    overflow:initial
+} */
+
+/* .slick-prev{
+    left: -75px
+} */

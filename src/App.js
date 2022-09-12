@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 import Login from './cpmonents/Login';
 import Login_page from './cpmonents/login_page';
@@ -7,12 +7,12 @@ import { useState } from 'react';
 import Signin_page from './cpmonents/signin_page';
 import Welcome from './cpmonents/welcome_page';
 import Forgot from './cpmonents/forgot_password';
+import Details from './cpmonents/Details';
 import { auth } from './cpmonents/firebase'; 
 import { useEffect } from "react";
-import {createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  onAuthStateChanged,
-  signOut,
+import {
+  onAuthStateChanged
+  
   } from "firebase/auth"
 
 function App() {
@@ -34,6 +34,7 @@ function App() {
         <Route path="/signin" element={<Signin_page email={email} setEmail={setEmail}/>} />
         <Route path="/welcome" element={<Welcome email={email} setEmail={setEmail}/>} />
         <Route path="/forgot-password" element={<Forgot email={email} setEmail={setEmail}/>} />
+        <Route path="/detail/:id" element={<Details />} />
       </Routes>
       </BrowserRouter>
       {/* <Login /> */}

@@ -7,24 +7,41 @@ import { FaTape } from "react-icons/fa";
 import React from "react";
 import { signOut } from "firebase/auth";
 import { auth } from "./firebase";
-
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // import {auth} from '../firebase'
 
 const Header = (props) => {
+  let [isLoggedIn, setIsLoggedIn] = useState(true);
+  // function isLoggedFunc(){
+
+  auth.onAuthStateChanged(function (user) {
+    if (user) {
+      // User is signed in.
+      // console.log("logged innn",user)
+      setIsLoggedIn(false);
+    } else {
+      // No user is signed in.
+      // console.log("noooooo log in",user)
+      setIsLoggedIn(true);
+    }
+  });
+  // }
+
   let navigate = useNavigate();
   function handleLogOut() {
     signOut(auth)
       .then(() => {
         console.log("logout successful ");
+
         // navigate("/")
       })
       .catch((error) => {
         console.log(error);
       });
   }
-
+  // console.log("user: ",props.email)
   return (
     <div className="text-slate-50 bg-slate-900 h-[60px] ">
       <section className="w-[80vw] flex items-center justify-between m-auto h-[60px]">
@@ -35,6 +52,9 @@ const Header = (props) => {
           />
         </div>
         <div>
+        {//if user is logged in ,only then show details on navbar
+        }
+        {!isLoggedIn ? 
           <section className="lg:flex hidden">
             <div className="flex items-center px-2">
               <AiFillHome />
@@ -60,28 +80,36 @@ const Header = (props) => {
               <FaTape />
               <div className="text-sm px-1">SERIES</div>
             </div>
-          </section>
+          </section>: ""}
         </div>
-        {/* <div className="w-10 h-10 rounded-lg bg-white"></div> */}
-        
-        <button
-          className="border-white border-[1px] rounded-md w-[5em] hover:bg-slate-800 text-sm h-[2em]"
-          onClick={() => {
-            navigate("/login");
-          }}
-        >
-          Login
-        </button>
-      
-        <button
-          className="border-white border-[1px] rounded-md w-[5em] hover:bg-slate-800 text-sm h-[2em]"
-          onClick={() => {
-            navigate("/");
-            handleLogOut();
-          }}
-        >
-          Log Out
-        </button>
+        {
+          //if user is logged in show logout btn, else show login btn
+        }
+        {isLoggedIn ? (
+          <button
+            className="border-white border-[1px] rounded-md w-[5em] hover:bg-slate-800 text-sm h-[2em]"
+            onClick={() => {
+              navigate("/login");
+              // isLoggedFunc();
+            }}
+          >
+            Login
+          </button>
+        ) : (
+          <div className="flex items-center ">
+            <button
+              className="border-white border-[1px] rounded-md w-[5em] hover:bg-slate-800 text-sm h-[2em]"
+              onClick={() => {
+                navigate("/");
+                handleLogOut();
+                // isLoggedFunc();
+              }}
+            >
+              Log Out
+            </button>
+              <div className="w-10 h-10 ml-2 rounded-lg bg-white"></div>
+          </div>
+        )}
       </section>
     </div>
   );
