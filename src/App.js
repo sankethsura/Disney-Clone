@@ -8,6 +8,7 @@ import Signin_page from './cpmonents/signin_page';
 import Welcome from './cpmonents/welcome_page';
 import Forgot from './cpmonents/forgot_password';
 import Details from './cpmonents/Details';
+import Error from './cpmonents/Error';
 import { auth } from './cpmonents/firebase'; 
 import { useEffect } from "react";
 import {
@@ -35,6 +36,7 @@ function App() {
         <Route path="/welcome" element={<Welcome email={email} setEmail={setEmail}/>} />
         <Route path="/forgot-password" element={<Forgot email={email} setEmail={setEmail}/>} />
         <Route path="/detail/:id" element={<Details />} />
+        <Route path="/error" element={<Error />} />
       </Routes>
       </BrowserRouter>
       {/* <Login /> */}

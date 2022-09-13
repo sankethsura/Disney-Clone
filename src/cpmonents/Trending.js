@@ -8,18 +8,18 @@ import { useState } from "react";
 console.log(data.movies[1].type)
 
 
-const Recommended = () => {
+const Trending = () => {
   
 
-  const array1 = [1, 2, 3, 4, 5, 6, 7, 8];
+  const array1 = [1, 2, 3, 4, 5, 6];
   const cardArray = array1.map((e, index) => {
     return (
       <div key={index+1} className=" ">
-        <Link to={"/detail/"+data.movies[index+1].id}>
+        <Link to={"/detail/"+data.movies[index+10].id}>
 
         <img
           className="object-cover py-2 px-2 w-[90vw] mx-auto rounded-xl"
-          src={data.movies[index + 1].cardImg}
+          src={data.movies[index + 10].cardImg}
           />
           </Link>
       </div>
@@ -38,6 +38,7 @@ const Recommended = () => {
     autoplaySpeed: 3000,
     pauseOnHover: true,
     arrows:false,
+    rtl : true,
   };
 
   return (
@@ -47,4 +48,4 @@ const Recommended = () => {
   );
 };
 
-export default Recommended;
+export default Trending;

@@ -4,7 +4,12 @@ import ImageSlider from "./imageSlider";
 import SmallCards from "./smallCards";
 import Recommended from "./Recommended";
 import Recommended2 from "./Recommended2";
-export default function Welcome(props) {
+import Trending from "./Trending";
+import Trending2 from "./Trending2";
+import Original from "./Original";
+import Original2 from "./Original1";
+
+export default function Welcome() {
   return (
     <div>
       <img
@@ -15,13 +20,31 @@ export default function Welcome(props) {
       <ImageSlider />
       <SmallCards />
       <div className="text-white flex w-[90vw] m-auto left-0 pb-2 lg:text-xl">
-        Recommended
+        Recommended for you
       </div>
       <div className="flex lg:hidden">
         <Recommended />
       </div>
       <div className="hidden lg:flex">
         <Recommended2 />
+      </div>
+      <div className="text-white flex w-[90vw] m-auto left-0 pb-2 lg:text-xl">
+        Trending Now
+      </div>
+      <div className="flex lg:hidden">
+        <Trending />
+      </div>
+      <div className="hidden lg:flex">
+        <Trending2 />
+      </div>
+      <div className="text-white flex w-[90vw] m-auto left-0 pb-2 lg:text-xl">
+        Original by Disney
+      </div>
+      <div className="flex lg:hidden">
+        <Original />
+      </div>
+      <div className="hidden lg:flex">
+        <Original2 />
       </div>
     </div>
   );

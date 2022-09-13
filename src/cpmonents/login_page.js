@@ -83,7 +83,9 @@ const Login_page = (props) => {
         >
           <button>Forgot Password?</button>
         </div>
-        <button className="text-xs mt-2  border-slate-500 rounded-md px-5 py-1 bg-yellow-200">
+        <button onClick={()=>{
+          navHome('/')
+        }} className="text-xs mt-2  border-slate-500 rounded-md px-5 py-1 bg-yellow-200">
           Back to HOME!!!
         </button>
       </div>

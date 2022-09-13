@@ -19,7 +19,7 @@ const ImageSlider = () => {
   });
   const settings = {
     className: "center",
-    centerMode: true,
+    // centerMode: true,
     infinite: true,
     centerPadding: "60px",
     slidesToShow: 1,
@@ -29,7 +29,7 @@ const ImageSlider = () => {
     autoplaySpeed: 3000,
     pauseOnHover: true,
     dots: true,
-    // arrows:false,
+    arrows:false,
   };
   return (
     <div className="pb-10 w-[90vw] m-auto">
